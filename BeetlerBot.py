@@ -27,7 +27,7 @@ cid = -1
 
 KEYWORDS = ["BEE",
             "ABEGA",
-            "ABJEA",
+            "ABEJA",
             "ABIEGA",
             "GABEE",
             "LAZAJAVIER",
