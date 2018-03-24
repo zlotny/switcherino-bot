@@ -59,5 +59,8 @@ def echo_message(message):
     if any(x in message.text.upper() for x in KEYWORDS):
         bot.send_photo(message.chat.id, open('abega.png', 'rb'), 'BZZZZZ')
 
-
-bot.polling()
+while True:
+    try:
+        bot.polling()
+    except Exception as e:
+        time.sleep(15)
