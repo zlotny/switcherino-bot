@@ -18,13 +18,30 @@ cd golden-sun-hype-bot
 python --version
 ```
 
-## Running the software
+## Running the software - Standalone
 ```bash
 # If your default python version is 3
 python main.py
 
 # If it is not
 python3 main.py
+```
+
+## Running the software - Docker
+Just build the docker image with a tag you like. For example:
+
+```bash
+
+docker build -t golden-sun-hype-bot .
+
+```
+
+And then run it with something like:
+
+```bash
+
+docker run -d --restart=always --name golden-sun-hype-bot golden-sun-hype-bot
+
 ```
 
 Golden Sun Hype Bot uses [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI) to work.
