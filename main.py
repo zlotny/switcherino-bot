@@ -24,7 +24,7 @@ TOKEN = "805668801:AAFvl9lmegBE39tM7qjDMN1CCPPnIcepYxo"
 
 bot = telebot.TeleBot(TOKEN)
 
-KEYWORDS = ["GOLDEN SUN", "LOST AGE", "DARK DOWN"]
+KEYWORDS = ["GOLDEN SUN", "LOST AGE", "DARK DAWN"]
 
 
 @bot.message_handler(commands=['start'])
