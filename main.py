@@ -12,6 +12,7 @@ Yes, seriously.
 import telebot
 import time
 from datetime import datetime
+from random import choice
 
 __author__ = "Andrés Vieira"
 __credits__ = ["Alejandro Gutiérrez"]
@@ -25,6 +26,7 @@ TOKEN = "805668801:AAFvl9lmegBE39tM7qjDMN1CCPPnIcepYxo"
 bot = telebot.TeleBot(TOKEN)
 
 KEYWORDS = ["GOLDEN SUN", "LOST AGE", "DARK DAWN"]
+PICS = ["hype1.png", "hype2.jpg"]
 
 
 @bot.message_handler(commands=['start'])
@@ -47,7 +49,7 @@ def send_help(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
     if any(x in message.text.upper() for x in KEYWORDS):
-        bot.send_photo(message.chat.id, open('hype.png', 'rb'), 'ALGUIEN HA DICHO... G O L D E N S U N ?')
+        bot.send_photo(message.chat.id, open(choice(PICS), 'rb'), 'ALGUIEN HA DICHO... G O L D E N S U N ?')
 
 while True:
     try:
