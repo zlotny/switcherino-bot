@@ -48,12 +48,20 @@ def send_help(message):
 def echo_message(message):
     ''' Handle all other messages '''
     if any(x in message.text.upper() for x in KEYWORDS_GS):
-        bot.send_photo(message.chat.id, open(choice(PICS_GS), 'rb'), 'ALGUIEN HA DICHO... G O L D E N S U N ?')
+        bot.send_message(message.chat.id, "ALGUIEN HA DICHO... G O L D E N S U N ?")
+        bot.send_sticker(message.chat.id, open(choice(PICS_GS), 'rb'))
+        print("{} => Sent sticker to {}".format(datetime.now(), message.chat.id))
     elif any(x in message.text.upper() for x in KEYWORDS_SOIBER):
-        bot.send_photo(message.chat.id, open(choice(PICS_SOIBER), 'rb'), 'Soiber, awesome content, You deserve more views')
+        bot.send_message(message.chat.id, "Soiber, awesome content, You deserve more views")
+        bot.send_sticker(message.chat.id, open(choice(PICS_SOIBER), 'rb'))
+        print("{} => Sent sticker to {}".format(datetime.now(), message.chat.id))
 
 while True:
     try:
         bot.polling()
+    except KeyboardInterrupt:
+        print("Exiting by user request.")
+        exit(0)
     except Exception as e:
         time.sleep(15)
+
