@@ -19,7 +19,7 @@ __maintainer__ = "Andrés Vieira"
 __email__ = "anvieiravazquez@gmail.com"
 __status__ = "Development"
 
-TOKEN = "805668801:AAFvl9lmegBE39tM7qjDMN1CCPPnIcepYxo"
+TOKEN = "7940099208:AAHmZkDjg-iUhVHD0e02r7DskLvAe0BkkW0"
 
 bot = telebot.TeleBot(TOKEN)
 
