@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" BeetlerBot
+""" Switcherino Bot
 
-The purpose of this bot is to reply a image of a bee similar to Hitler as a response
-to any message containing a series of keywords.
+Bot made to participate in a telegram group
 
-Yes, seriously.
 """
 
 import telebot
@@ -25,16 +23,17 @@ TOKEN = "805668801:AAFvl9lmegBE39tM7qjDMN1CCPPnIcepYxo"
 
 bot = telebot.TeleBot(TOKEN)
 
-KEYWORDS = ["GOLDEN SUN", "LOST AGE", "DARK DAWN"]
-PICS = ["hype1.png", "hype2.jpg"]
+KEYWORDS_GS = ["GOLDEN SUN", "LOST AGE", "DARK DAWN"]
+KEYWORDS_SOIBER = ["SOIBER", "OTERO", "AMBROA", "SOIBERIA", "SOIBERIANA", "SOIBERIANO", "SOIBERIANAS", "SOIBERIANOS"]
+PICS_GS = ["hype1.png", "hype2.jpg"]
+PICS_SOIBER = ["soiber1.png"]
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     ''' Handle /start '''
     bot.reply_to(message, """\
-Hi there, I am the Golden Sun Hype bot!.
-Did anyone say Golden Sun?.\
+    Unga bunga?.\
 """)
 
 
@@ -42,14 +41,16 @@ Did anyone say Golden Sun?.\
 def send_help(message):
     ''' Handle /help and /info '''
     bot.reply_to(
-        message, "Just send a message containing any of this words: {}".format(",".join(KEYWORDS)))
+        message, "Just send a message containing any of this words: {}".format(",".join(KEYWORDS_GS+KEYWORDS_SOIBER)))
 
 
-# Handle all other messages with content_type 'text' (content_types defaults to ['text'])
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
-    if any(x in message.text.upper() for x in KEYWORDS):
-        bot.send_photo(message.chat.id, open(choice(PICS), 'rb'), 'ALGUIEN HA DICHO... G O L D E N S U N ?')
+    ''' Handle all other messages '''
+    if any(x in message.text.upper() for x in KEYWORDS_GS):
+        bot.send_photo(message.chat.id, open(choice(PICS_GS), 'rb'), 'ALGUIEN HA DICHO... G O L D E N S U N ?')
+    elif any(x in message.text.upper() for x in KEYWORDS_SOIBER):
+        bot.send_photo(message.chat.id, open(choice(PICS_SOIBER), 'rb'), 'Soiber, awesome content, You deserve more views')
 
 while True:
     try:
