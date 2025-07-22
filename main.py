@@ -11,6 +11,7 @@ import telebot
 import time
 from datetime import datetime
 from random import choice
+import os
 
 __author__ = "Andrés Vieira"
 __credits__ = ["Alejandro Gutiérrez"]
@@ -19,7 +20,9 @@ __maintainer__ = "Andrés Vieira"
 __email__ = "anvieiravazquez@gmail.com"
 __status__ = "Development"
 
-TOKEN = "7940099208:AAHmZkDjg-iUhVHD0e02r7DskLvAe0BkkW0"
+TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN environment variable not set")
 
 bot = telebot.TeleBot(TOKEN)
 
